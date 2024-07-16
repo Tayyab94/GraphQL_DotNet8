@@ -46,6 +46,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.5.1, )"
+            },
             "HotChocolate.AspNetCore": {
               "target": "Package",
               "version": "[13.9.7, )"

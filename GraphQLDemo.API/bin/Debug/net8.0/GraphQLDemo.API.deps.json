@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "GraphQLDemo.API/1.0.0": {
         "dependencies": {
+          "Bogus": "35.5.1",
           "HotChocolate.AspNetCore": "13.9.7"
         },
         "runtime": {
@@ -22,6 +23,14 @@
           "lib/net8.0/BananaCakePop.Middleware.dll": {
             "assemblyVersion": "16.0.0.0",
             "fileVersion": "16.0.1.0"
+          }
+        }
+      },
+      "Bogus/35.5.1": {
+        "runtime": {
+          "lib/net6.0/Bogus.dll": {
+            "assemblyVersion": "35.5.1.0",
+            "fileVersion": "35.5.1.0"
           }
         }
       },
@@ -391,6 +400,13 @@
       "sha512": "sha512-i/LDG7Lw2ln1WM7GaMyNDWHExtN15/O/xgcX8lhBK6FZFPBnlq6FJW4GuS3vs0UpLB1TvX2tcOenMlXjcMZq0g==",
       "path": "bananacakepop.middleware/16.0.1",
       "hashPath": "bananacakepop.middleware.16.0.1.nupkg.sha512"
+    },
+    "Bogus/35.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GBp2peww04szEJ0GlBlzCYilFDaSkL7Ja4m37YeTRjC/mgoiZnUuifmgUxVD/oLU2MC1uoXfQYK91doGp7Zkpg==",
+      "path": "bogus/35.5.1",
+      "hashPath": "bogus.35.5.1.nupkg.sha512"
     },
     "GreenDonut/13.9.7": {
       "type": "package",
