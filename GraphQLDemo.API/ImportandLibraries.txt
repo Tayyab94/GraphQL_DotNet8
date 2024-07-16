@@ -1,3 +1,5 @@
 ﻿1: Hotchocolate.AspnetCore
+2: Bogus.
 
 
+https://www.youtube.com/watch?v=5gxwIzrMs8w&list=PLA8ZIAm2I03g9z705U3KWJjTv0Nccw9pj&index=2&ab_channel=SingletonSean

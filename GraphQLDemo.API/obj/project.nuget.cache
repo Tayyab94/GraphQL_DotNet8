@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PL7vhlRk+Xs=",
+  "dgSpecHash": "gzkm0xsHJ0Y=",
   "success": true,
   "projectFilePath": "C:\\Users\\tayya\\source\\Repos\\GraphQLDemo\\GraphQLDemo.API\\GraphQLDemo.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tayya\\.nuget\\packages\\bananacakepop.middleware\\16.0.1\\bananacakepop.middleware.16.0.1.nupkg.sha512",
+    "C:\\Users\\tayya\\.nuget\\packages\\bogus\\35.5.1\\bogus.35.5.1.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\greendonut\\13.9.7\\greendonut.13.9.7.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\hotchocolate\\13.9.7\\hotchocolate.13.9.7.nupkg.sha512",
     "C:\\Users\\tayya\\.nuget\\packages\\hotchocolate.abstractions\\13.9.7\\hotchocolate.abstractions.13.9.7.nupkg.sha512",

@@ -53,3 +53,5 @@ C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\obj\Debug\net8.0\refint\
 C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\obj\Debug\net8.0\GraphQLDemo.API.pdb
 C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\obj\Debug\net8.0\GraphQLDemo.API.genruntimeconfig.cache
 C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\obj\Debug\net8.0\ref\GraphQLDemo.API.dll
+C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\bin\Debug\net8.0\Bogus.dll
+C:\Users\tayya\source\Repos\GraphQLDemo\GraphQLDemo.API\obj\Debug\net8.0\GraphQLDemo.API.sourcelink.json
