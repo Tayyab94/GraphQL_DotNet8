@@ -1,12 +1,12 @@
 ﻿using Bogus;
 
-namespace GraphQLDemo.API.Schema
+namespace GraphQLDemo.API.Schema.Qeries
 {
     public class Query
     {
 
         private readonly Faker<InstructorType> instractorFaker;
-      private readonly  Faker<StudentType> studentFaker;
+        private readonly Faker<StudentType> studentFaker;
         private readonly Faker<CourseType> courseFaker;
 
         public Query()
@@ -42,9 +42,9 @@ namespace GraphQLDemo.API.Schema
             return courses;
         }
 
-        public async Task<CourseType>GetCourseByIdAsync(Guid id)
+        public async Task<CourseType> GetCourseByIdAsync(Guid id)
         {
-            await Task.Delay(1000); 
+            await Task.Delay(1000);
             var courseType = courseFaker.Generate();
             courseType.Id = id;
 

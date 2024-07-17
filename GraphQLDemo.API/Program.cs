@@ -1,8 +1,9 @@
-using GraphQLDemo.API.Schema;
+using GraphQLDemo.API.Schema.Mutations;
+using GraphQLDemo.API.Schema.Qeries;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddGraphQLServer().AddQueryType<Query>();
+builder.Services.AddGraphQLServer().AddQueryType<Query>().AddMutationType<Mutattion>();
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
