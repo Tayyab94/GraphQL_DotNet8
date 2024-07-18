@@ -1859,7 +1859,10 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "Bogus >= 35.5.1",
-      "HotChocolate.AspNetCore >= 13.9.7"
+      "HotChocolate >= 13.9.7",
+      "HotChocolate.AspNetCore >= 13.9.7",
+      "HotChocolate.Subscriptions >= 13.9.7",
+      "HotChocolate.Subscriptions.InMemory >= 13.9.7"
     ]
   },
   "packageFolders": {
@@ -1911,7 +1914,19 @@
             "target": "Package",
             "version": "[35.5.1, )"
           },
+          "HotChocolate": {
+            "target": "Package",
+            "version": "[13.9.7, )"
+          },
           "HotChocolate.AspNetCore": {
+            "target": "Package",
+            "version": "[13.9.7, )"
+          },
+          "HotChocolate.Subscriptions": {
+            "target": "Package",
+            "version": "[13.9.7, )"
+          },
+          "HotChocolate.Subscriptions.InMemory": {
             "target": "Package",
             "version": "[13.9.7, )"
           }

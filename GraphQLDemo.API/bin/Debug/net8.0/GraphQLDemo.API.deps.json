@@ -9,7 +9,10 @@
       "GraphQLDemo.API/1.0.0": {
         "dependencies": {
           "Bogus": "35.5.1",
-          "HotChocolate.AspNetCore": "13.9.7"
+          "HotChocolate": "13.9.7",
+          "HotChocolate.AspNetCore": "13.9.7",
+          "HotChocolate.Subscriptions": "13.9.7",
+          "HotChocolate.Subscriptions.InMemory": "13.9.7"
         },
         "runtime": {
           "GraphQLDemo.API.dll": {}
