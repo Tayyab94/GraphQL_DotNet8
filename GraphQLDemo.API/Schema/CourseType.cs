@@ -1,12 +1,8 @@
-﻿namespace GraphQLDemo.API.Schema
+﻿using GraphQLDemo.API.Models;
+
+namespace GraphQLDemo.API.Schema
 {
 
-    public enum Subject
-    {
-        Mathematics,
-        Science,
-        History
-    }
 
 
     public class CourseType
