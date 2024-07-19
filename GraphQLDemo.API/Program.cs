@@ -1,3 +1,4 @@
+using GraphQLDemo.API.DataLoader;
 using GraphQLDemo.API.Schema.Mutations;
 using GraphQLDemo.API.Schema.Qeries;
 using GraphQLDemo.API.Schema.Subscriptions;
@@ -14,7 +15,8 @@ string connectionString = builder.Configuration.GetConnectionString("default");
 builder.Services.AddPooledDbContextFactory<SchoolDbContext>(s => s.UseSqlite(connectionString));
 
 builder.Services.AddScoped<CourseRepository>();
-
+builder.Services.AddScoped<InstructorRepository>();
+builder.Services.AddScoped<InstructorDataLoader>();
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");

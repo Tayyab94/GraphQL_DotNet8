@@ -17,7 +17,7 @@ namespace GraphQLDemo.API.Services.Course
         {
             using (var context = _dbContextFactory.CreateDbContext())
             {
-                return await context.Courses.Include(s=>s.Instructor).Include(s=>s.Students).ToListAsync();
+                return await context.Courses.ToListAsync();
             }
         }
 
@@ -26,7 +26,7 @@ namespace GraphQLDemo.API.Services.Course
             using (var context = _dbContextFactory.CreateDbContext())
             {
                 
-                var course = await context.Courses.Include(s=>s.Instructor).Include(s => s.Students).FirstOrDefaultAsync(s=>s.Id== id);
+                var course = await context.Courses.FirstOrDefaultAsync(s=>s.Id== id);
 
                 return course;
             }

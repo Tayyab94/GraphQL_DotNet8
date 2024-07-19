@@ -10,7 +10,8 @@ namespace GraphQLDemo.API.DTOs
         public string Name { get; set; } = string.Empty;
         public Subject Subject { get; set; }
 
-       
+       public Guid InstructorId { get; set; }
+        [ForeignKey("InstructorId")]
         public InstructorDTO Instructor { get; set; }
         public IEnumerable<StudentDTO> Students { get; set; }
     }

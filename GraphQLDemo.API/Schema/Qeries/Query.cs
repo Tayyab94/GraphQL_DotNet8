@@ -23,12 +23,7 @@ namespace GraphQLDemo.API.Schema.Qeries
                 Id=s.Id,
                  Name=s.Name,
                   Subject=s.Subject,
-                   Instructor=new InstructorType()
-                   {
-                       Id=s.Instructor.Id,
-                       FirstName=s.Instructor.FirstName,
-                       LastName =s.Instructor.LastName,
-                   }
+                InstructorId  = s.InstructorId,
             });
         }
 
@@ -40,12 +35,13 @@ namespace GraphQLDemo.API.Schema.Qeries
                 Id = course.Id,
                 Name = course.Name,
                 Subject = course.Subject,
-                Instructor = new InstructorType()
-                {
-                    Id = course.Instructor.Id,
-                    FirstName = course.Instructor.FirstName,
-                    LastName = course.Instructor.LastName,
-                }
+                InstructorId=course.InstructorId,
+                //Instructor = new InstructorType()
+                //{
+                //    Id = course.Instructor.Id,
+                //    FirstName = course.Instructor.FirstName,
+                //    LastName = course.Instructor.LastName,
+                //}
 
             };
         }
