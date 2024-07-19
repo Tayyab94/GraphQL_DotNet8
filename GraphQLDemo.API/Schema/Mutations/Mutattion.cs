@@ -1,30 +1,43 @@
-﻿using GraphQLDemo.API.Schema.Subscriptions;
+﻿using GraphQLDemo.API.DTOs;
+using GraphQLDemo.API.Schema.Subscriptions;
+using GraphQLDemo.API.Services.Course;
 using HotChocolate.Subscriptions;
 
 namespace GraphQLDemo.API.Schema.Mutations
 {
     public class Mutattion
     {
+        private readonly CourseRepository _courseRepo;
 
-        private readonly List<CourseResult> _courses;
-
-        public Mutattion()
+        public Mutattion(CourseRepository repository)
         {
-            _courses = new List<CourseResult>();
+            _courseRepo = repository;
         }
 
         public async Task<CourseResult> CreateCourse(CourseInputType model, [Service]ITopicEventSender topicEventSender)
         {
+
+            CourseDTO data = new CourseDTO()
+            {
+                Id= Guid.NewGuid(),
+                Name = model.Name,
+                Subject = model.Subject,
+                //InstructorId = model.InstructorId,
+                Instructor= new InstructorDTO()
+                {
+                    Id= model.InstructorId
+                }
+            };
+            await _courseRepo.Create(data);
+
             var course = new CourseResult
             {
-                Id = Guid.NewGuid(),
+                Id = data.Id,
                 Name = model.Name,
 
                 Subject = model.Subject,
                 InstructorId = model.InstructorId
             };
-            _courses.Add(course);
-
             await topicEventSender.SendAsync(nameof(Subscription.CourseCreated), course);
             return course;
 
@@ -33,27 +46,38 @@ namespace GraphQLDemo.API.Schema.Mutations
 
         public async Task<CourseResult> UpdateCourse(Guid id, CourseInputType model, [Service] ITopicEventSender topicEventSender)
         {
-            var result = _courses.FirstOrDefault(s => s.Id == id);
 
-            if (result == null)
+            CourseDTO data = new CourseDTO()
             {
-                throw new GraphQLException(new Error("Course Not found", "403"));
-            }
+                Id= id,
+                Name = model.Name,
+                Subject = model.Subject,
+                Instructor = new InstructorDTO()
+                {
+                    Id= model.InstructorId
+                },
+            };
+            await _courseRepo.Update(data);
 
-            result.Name = model.Name;
-            result.Subject = model.Subject;
-            result.InstructorId = model.InstructorId;
 
-            string UpdateCourseTopic = $"{result.Id}_{nameof(Subscription.CourseUpdated)}";
-            await topicEventSender.SendAsync(UpdateCourseTopic, result);
-            return result;
+            var course = new CourseResult
+            {
+                Id = data.Id,
+                Name = model.Name,
+
+                Subject = model.Subject,
+                InstructorId = model.InstructorId
+            };
+
+            string UpdateCourseTopic = $"{course.Id}_{nameof(Subscription.CourseUpdated)}";
+            await topicEventSender.SendAsync(UpdateCourseTopic, course);
+            return course;
         }
 
 
-        public bool DeleteCourse(Guid Id)
+        public async Task<bool> DeleteCourse(Guid Id)
         {
-            return 
-                _courses.RemoveAll(s=>s.Id == Id)>1;
+            return await _courseRepo.Delete(Id);
         }
     }
 }

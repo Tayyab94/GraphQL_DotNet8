@@ -1,55 +1,53 @@
 ﻿using Bogus;
 using GraphQLDemo.API.Models;
+using GraphQLDemo.API.Services.Course;
 
 namespace GraphQLDemo.API.Schema.Qeries
 {
     public class Query
     {
 
-        private readonly Faker<InstructorType> instractorFaker;
-        private readonly Faker<StudentType> studentFaker;
-        private readonly Faker<CourseType> courseFaker;
-
-        public Query()
+        private readonly CourseRepository courseRepository;
+        public Query(CourseRepository course)
         {
-
-            // For faker, we have installed Bogus Library
-
-            instractorFaker = new Faker<InstructorType>()
-                .RuleFor(s => s.Id, f => Guid.NewGuid())
-                .RuleFor(s => s.FirstName, f => f.Name.FirstName())
-                    .RuleFor(s => s.LastName, f => f.Name.LastName());
-
-
-            studentFaker = new Faker<StudentType>()
-                .RuleFor(s => s.Id, f => Guid.NewGuid())
-                .RuleFor(s => s.FirstName, f => f.Name.FirstName())
-                    .RuleFor(s => s.LastName, f => f.Name.LastName())
-                    .RuleFor(s => s.GPA, f => f.Random.Double(1, 4));
-
-
-            courseFaker = new Faker<CourseType>()
-                .RuleFor(s => s.Id, f => Guid.NewGuid())
-                .RuleFor(s => s.Name, f => f.Name.JobTitle())
-                .RuleFor(s => s.Subject, f => f.PickRandom<Subject>())
-                .RuleFor(s => s.Instructor, f => instractorFaker.Generate())
-                .RuleFor(s => s.Students, f => studentFaker.Generate(2));
+            courseRepository = course;
         }
-        public IEnumerable<CourseType> GetCourses()
+
+
+        public async Task<IEnumerable<CourseType>> GetCourses()
         {
+            var course = await courseRepository.GetAllCourses();
 
-            List<CourseType> courses = courseFaker.Generate(5);
-
-            return courses;
+            return course.Select(s=>new CourseType()
+            {
+                Id=s.Id,
+                 Name=s.Name,
+                  Subject=s.Subject,
+                   Instructor=new InstructorType()
+                   {
+                       Id=s.Instructor.Id,
+                       FirstName=s.Instructor.FirstName,
+                       LastName =s.Instructor.LastName,
+                   }
+            });
         }
 
         public async Task<CourseType> GetCourseByIdAsync(Guid id)
         {
-            await Task.Delay(1000);
-            var courseType = courseFaker.Generate();
-            courseType.Id = id;
+            var course = await courseRepository.GetCourseById(id);
+            return new CourseType()
+            {
+                Id = course.Id,
+                Name = course.Name,
+                Subject = course.Subject,
+                Instructor = new InstructorType()
+                {
+                    Id = course.Instructor.Id,
+                    FirstName = course.Instructor.FirstName,
+                    LastName = course.Instructor.LastName,
+                }
 
-            return courseType;
+            };
         }
         // we will no longer to display this in our query
         [GraphQLDeprecated("This query is deprecated now")]

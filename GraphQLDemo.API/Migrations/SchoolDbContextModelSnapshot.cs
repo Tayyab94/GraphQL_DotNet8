@@ -29,7 +29,7 @@ namespace GraphQLDemo.API.Migrations
 
                     b.HasIndex("StudentsId");
 
-                    b.ToTable("CourseDTOStudentDTO");
+                    b.ToTable("CourseDTOStudentDTO", (string)null);
                 });
 
             modelBuilder.Entity("GraphQLDemo.API.DTOs.CourseDTO", b =>
@@ -52,7 +52,7 @@ namespace GraphQLDemo.API.Migrations
 
                     b.HasIndex("InstructorId");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Courses", (string)null);
                 });
 
             modelBuilder.Entity("GraphQLDemo.API.DTOs.InstructorDTO", b =>
@@ -71,7 +71,7 @@ namespace GraphQLDemo.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Instructors");
+                    b.ToTable("Instructors", (string)null);
                 });
 
             modelBuilder.Entity("GraphQLDemo.API.DTOs.StudentDTO", b =>
@@ -93,7 +93,7 @@ namespace GraphQLDemo.API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Students", (string)null);
                 });
 
             modelBuilder.Entity("CourseDTOStudentDTO", b =>
